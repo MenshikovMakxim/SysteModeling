@@ -1,4 +1,3 @@
-import math
 from .math_stat import MathStat
 
 class Lab1:
@@ -10,8 +9,8 @@ class Lab1:
         self.xi = []
 
 
-    def count(self, q : int) -> list[float]:
-        self._rand(q)
+    def count(self, seed : int) -> list[float]:
+        self._rand(seed)
         return self.xi
 
 
@@ -35,6 +34,8 @@ class Lab1:
         return self.xi
 
 
+    def get_stats(self) -> dict[str, float]:
+        return MathStat.statistic(self.xi)
 
 
 
