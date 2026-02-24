@@ -1,5 +1,5 @@
-from core import Lab1, MathStat
-from views import Histogram
+from core import Lab1, Lab3, MathStat
+from views import Histogram, Lab3Approximation
 from random import randint
 
 class CLab1:
@@ -70,3 +70,30 @@ class CLab1:
         )
 
         return stats_text
+
+class CLab3:
+    def __init__(self, x : list[float], y : list[float], n : int) -> None:
+        self.lab3 = Lab3(x, y, n)
+        self.x = x
+        self.y = y
+        self.n = n
+        self.b = self.lab3.count_b()
+        self.mat_x = self.lab3.make_matrix()
+        self.vec_y = self.lab3.make_vector()
+
+    def Approximation(self) -> None:
+        apr = Lab3Approximation(self.x, self.y, self.n, self.b)
+        apr.plot(self.report())
+
+    def __str__(self):
+        return self.lab3.__str__()
+
+    def report(self):
+        report_text = (
+            f"а) Функція з визначеними коефіцієнтами: {self.lab3.function()} \n"
+            f"б) Таблиця заданих значень: X: {self.x}\n Y: {self.y}\n"
+            f"б) Таблиця розрахованих значень: X: {self.lab3.Y_reg()}\n"
+            f"в) Критерії найменших квадратів: {self.lab3.calculate_criterion()}\n"
+            f"г) Коефіцієнт кореляції: {self.lab3.corel_reg_anlysis()["R"]}\n"
+        )
+        return report_text
