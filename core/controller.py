@@ -83,7 +83,7 @@ class CLab3:
 
     def Approximation(self) -> None:
         apr = Lab3Approximation(self.x, self.y, self.n, self.b)
-        apr.plot(self.report())
+        apr.plot()
 
     def __str__(self):
         return self.lab3.__str__()

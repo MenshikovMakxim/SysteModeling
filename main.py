@@ -1,16 +1,31 @@
-from core import CLab3
+from core import CLab3, LabTest
 import numpy as np
 
 
 
 if __name__ == '__main__':
 
+    X_raw = np.array([
+        [4, 1], [3, 15], [4, 13], [4, 11], [2, 13], [5, 13],
+        [4, 15], [3, 14], [5, 15], [4, 11], [3, 12], [5, 12],
+        [3, 11], [5, 12], [4, 14], [3, 11], [2, 11]
+    ])
+
+    Y_raw = np.array([40, 15, 38, 40, 2, 65, 36, 16, 63, 40, 18, 66, 19, 63, 37, 19, 4])
+
     x = np.array([1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5])
     y = np.array([14, 18.222, 18, 17.216, 16.444, 15.778, 15.219, 14.749, 14.352, 14.014, 13.722, 13.469, 13.248, 13.052, 12.879, 12.724])
     lab3 = CLab3(x, y, 3)
-    lab3.Approximation()
+    print(lab3.report())
     print(lab3)
-    lab3.lab3.test()
+    lab3.Approximation()
+    # lab3.lab3.test()
+    # Тест з задачі підручника
+    # lbt = LabTest(X_raw, Y_raw,2)
+    # print(lbt)
+
+
+
 
 
 

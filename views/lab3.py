@@ -17,34 +17,12 @@ class Lab3Approximation:
         Y_smooth = X_smooth_mat @ self.b
         return X_smooth, Y_smooth
 
-    # def plot(self):
-    #     """Малює графік експериментальних даних і апроксимацію"""
-    #     # 1. Малюємо реальні дані як червоні крапки
-    #     print("Розміри для графіка:", self.X.shape, self.Y.shape)
-    #     plt.scatter(self.X, self.Y, color='red', label='Експериментальні дані', zorder=5)
-    #
-    #     # 2. Отримуємо розраховані значення
-    #     X_smooth, Y_smooth = self._calculate_smooth_curve()
-    #
-    #     # 3. Малюємо ідеальну синю лінію
-    #     plt.plot(X_smooth, Y_smooth, color='blue', linewidth=2, label=f'Апроксимація (порядок {self.n_order})')
-    #
-    #     # 4. Наводимо красу: сітка, підписи, легенда
-    #     plt.title('Ідентифікація об\'єкта за експериментальними даними')
-    #     plt.xlabel('X (вхідні дані)')
-    #     plt.ylabel('Y (відгук)')
-    #     plt.grid(True, linestyle='--', alpha=0.7)
-    #     plt.legend()
-    #
-    #     # Виводимо графік на екран
-    #     plt.show()
-    def plot(self, custom_text="Тут буде твій довжелезний текст, який нарешті влізе"):
+    def plot(self):
         """Малює графік експериментальних даних, апроксимацію та текст поруч"""
         # 1. Робимо вікно ширшим (наприклад, 12 на 6 дюймів замість стандартного квадрата)
         plt.figure(figsize=(12, 6))
 
         # Малюємо реальні дані як червоні крапки
-        print("Розміри для графіка:", self.X.shape, self.Y.shape)
         plt.scatter(self.X, self.Y, color='red', label='Експериментальні дані', zorder=5)
 
         # Отримуємо розраховані значення
@@ -60,16 +38,8 @@ class Lab3Approximation:
         plt.grid(True, linestyle='--', alpha=0.7)
         plt.legend()
 
-        # --- ЖОРСТКА МАГІЯ ДЛЯ ТЕКСТУ ---
-        # Тепер графік займає лише 55% ширини вікна (було 65%)
-        plt.subplots_adjust(right=0.55)
-
-        # x=0.58 (одразу за графіком). Додаємо wrap=True для автоперенесення слів!
-        plt.figtext(0.58, 0.5, custom_text, fontsize=10, va="center", ha="left",
-                    wrap=True,
-                    bbox=dict(facecolor='white', alpha=0.9, edgecolor='gray', boxstyle='round,pad=0.5'))
-
         # Виводимо графік на екран
+        plt.savefig('lab3.png')
         plt.show()
 #
 # lb3c = Lab3(
